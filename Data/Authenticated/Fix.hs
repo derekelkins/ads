@@ -1,8 +1,7 @@
 {-# LANGUAGE UndecidableInstances #-}
 {-# LANGUAGE TypeFamilies #-}
-module Data.Authenticated.Fix where
+module Data.Authenticated.Fix (FixAuth(..)) where
 import Data.Authenticated
-import Data.Foldable
 
 newtype FixAuth f a = FixAuth { unFixAuth :: f (Auth (FixAuth f a) a) }
 

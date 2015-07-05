@@ -3,13 +3,18 @@
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE TypeFamilies #-}
-module Data.Authenticated (Prover, Verifier, AuthM, Auth, runProver, runVerifier, Digestible(..), Authenticated(..), MapAuth(..), shallowAuth) where
+{-# LANGUAGE DefaultSignatures #-}
+module Data.Authenticated (Prover, Verifier, AuthM, Auth, runProver, runVerifier, Digestible(..), Authenticated(..), GMapAuth(..), MapAuth(..), shallowAuth) where
 -- Implements the ideas from "Authenticated Data Structures, Generically" by Andrew Miller, Michael Hicks, Jonathan Katz, and Elaine Shi.
 import Control.Monad.State
 import Control.Monad.Writer
+import GHC.Generics (Generic1, to1, from1, Rep1)
 
 data Prover
 data Verifier
+
+class GMapAuth f where    
+    gmapAuth :: f Prover -> f Verifier
 
 -- Abstract
 data family AuthM a s t
@@ -74,6 +79,8 @@ runVerifier = runAuthM
 
 class MapAuth f where
     mapAuth :: f Prover -> f Verifier
+    default mapAuth :: (GMapAuth (Rep1 f), Generic1 f) => f Prover -> f Verifier
+    mapAuth = to1 . gmapAuth . from1
 
 instance MapAuth (Auth t) where
     mapAuth = shallowAuth
