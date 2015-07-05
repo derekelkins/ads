@@ -15,7 +15,7 @@ cabal-version:       >=1.10
 library
   exposed-modules:     Data.Authenticated, Data.Authenticated.Generic, Data.Authenticated.Fix
   other-modules:       Data.Authenticated.Example
-  other-extensions:    StandaloneDeriving, GeneralizedNewtypeDeriving, FlexibleInstances, FlexibleContexts, MultiParamTypeClasses, EmptyDataDecls, TypeFamilies, UndecidableInstances
+  other-extensions:    GeneralizedNewtypeDeriving, FlexibleInstances, FlexibleContexts, EmptyDataDecls, TypeFamilies, UndecidableInstances
   build-depends:       base >=4.8 && <4.9, mtl >=2.2 && <2.3, bytestring >=0.10 && <0.11, cryptonite(==0.5)
   -- hs-source-dirs:      
   default-language:    Haskell2010

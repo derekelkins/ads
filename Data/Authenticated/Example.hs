@@ -1,27 +1,17 @@
 {-# LANGUAGE FlexibleContexts #-} 
 {-# LANGUAGE TypeFamilies #-} 
-{-# LANGUAGE StandaloneDeriving #-} 
 {-# LANGUAGE DeriveFunctor #-}
-{-# LANGUAGE UndecidableInstances #-}
-
---{-# LANGUAGE FlexibleInstances #-}
---{-# LANGUAGE TypeSynonymInstances #-}
 module Data.Authenticated.Example where 
 import qualified Crypto.Hash as Crypto
 import Data.Authenticated
 import Data.Authenticated.Fix
 import qualified Data.ByteString as BS
 import qualified Data.ByteString.Char8 as CBS
-import Data.Monoid
 
 -- Over-simplified Merkle Tree
 data Bit = L | R
 data Tree' x = Tip String | Bin x x
     deriving (Show, Functor)
-
-instance Foldable Tree' where
-    foldMap f (Tip _) = mempty
-    foldMap f (Bin l r) = f l <> f r
 
 type Tree = FixAuth Tree'
 type AuthTree a = Auth (Tree a) a

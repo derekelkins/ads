@@ -2,7 +2,6 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-} 
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE FlexibleContexts #-}
-{-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE TypeFamilies #-}
 module Data.Authenticated (Prover, Verifier, AuthM, Auth, runProver, runVerifier, Digestible(..), Authenticated(..), MapAuth(..), shallowAuth) where
 -- Implements the ideas from "Authenticated Data Structures, Generically" by Andrew Miller, Michael Hicks, Jonathan Katz, and Elaine Shi.

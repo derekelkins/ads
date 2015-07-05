@@ -7,8 +7,8 @@
 {-# LANGUAGE TypeFamilies #-}
 {-# LANGUAGE FlexibleContexts #-}
 module Data.Authenticated.Generic where
-import GHC.Generics
 import Data.Authenticated
+import GHC.Generics
 
 -- For example
 import qualified Crypto.Hash as Crypto
