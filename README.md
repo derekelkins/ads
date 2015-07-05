@@ -11,7 +11,7 @@ described in the paper, does not support authenticated functions.
 
 There are three methods for making an authenticated data with this library.  You can manually add `Auth` data types to your
 structure and manually implement `MapAuth`.  You can represent your data structure as a fix point using `FixAuth` and it
-will automatically be an instance of `MapAuth` as in [this example](https://github.com/derekelkins/ads/blob/master/Data/Authenticated/Example.hs).  
+will automatically be an instance of `MapAuth` as in [this example](https://github.com/derekelkins/ads/blob/master/Data/Authenticated/Example.hs).
 You can use `Auth1` data types and use derive `Generics1` and then simply state `instance MapAuth YourDataType`
 (see [GHC Generics](https://hackage.haskell.org/package/base-4.8.0.0/docs/GHC-Generics.html) 
 and [this example](https://github.com/derekelkins/ads/blob/master/Data/Authenticated/GenericExample.hs)).
