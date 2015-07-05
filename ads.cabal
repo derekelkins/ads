@@ -9,7 +9,7 @@ maintainer:          derek.a.elkins@gmail.com
 copyright:           Copyright (c) 2015 Derek Elkins
 category:            Data
 build-type:          Simple
--- extra-source-files:  
+extra-source-files:  README.md
 cabal-version:       >=1.10
 
 library
